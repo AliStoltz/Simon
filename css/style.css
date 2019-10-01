@@ -16,7 +16,7 @@ header {
     background: rgba(44, 233, 44, 0.3);
 }
 
-.button {
+.start-button {
     font-size: 16px;
     background-color: blueviolet;
     border: black 10px double;
@@ -132,7 +132,7 @@ main {
     z-index: 2;
 }
 
-.startSimon {
+.simon-logo {
     display: flex;
     position: absolute;
     top: 0;
@@ -142,9 +142,10 @@ main {
     justify-content: center;
     align-items: center;
     z-index: 10;
+    pointer-events: none;
 }
 
-.startSimon img {
+.simon-logo img {
     width: 200px;
     height: 200px;
     border-radius: 100px;

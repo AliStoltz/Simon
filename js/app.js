@@ -19,13 +19,13 @@
 // - buttons produce a specific tone when clicked
 
 // step one
-    // create a button attached to the simon image 
+    // create a button
     //add a litener to the button which will trigger the console to start the game.
 
 
 // step two
     // create a function that causes a toggle opacity on each color
-    //create a lister that logs the buttons clicked into an array.
+    //create a listener that logs the buttons clicked into an array.
 
 // step 3
     //create an array for the computers "button sequence"
@@ -36,3 +36,32 @@
 
 // step 5
     // create fucntions that update the score, round and highscore. 
+
+$('button').on('click', ()=> {
+    console.log('game has started');
+})
+
+const $yellow = $('.button-yellow')
+$('.button-yellow').on('click', ()=> {
+    $('.button-yellow').fadeToggle(100).fadeToggle(100);
+    console.log($yellow.text());
+})
+
+const $red = $('.button-red')
+$('.button-red').on('click', ()=> {
+    $('.button-red').fadeToggle(100).fadeToggle(100);
+    console.log($red.text());
+})
+
+const $green = $('.button-green')
+$('.button-green').on('click', ()=> {
+    $('.button-green').fadeToggle(100).fadeToggle(100);
+    console.log($green.text());
+})
+
+const $blue = $('.button-blue')
+$('.button-blue').on('click', ()=> {
+    $('.button-blue').fadeToggle(100).fadeToggle(100);
+    console.log($blue.text());
+})
+
