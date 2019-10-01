@@ -6,14 +6,14 @@
 }
 
 header {
-    /* background: maroon; */
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     padding: 25px;
     text-align: center;
     color: blueviolet;
+    background: rgba(0, 255, 0,.3);
 }
 
 .score-board {
@@ -41,24 +41,23 @@ header {
   clear: both;
 }
 
-footer {
+
+body img {
+    display: flex;
     position: absolute;
-    bottom: 0;
+    height: 100%;
     width: 100%;
-    height: 80px;
-    background: white;
+    z-index: -1;
 }
 
-.instructions {
-    text-align: center;
-}
-
+/* https://stackoverflow.com/questions/27177161/flexbox-curved-corners */
 .button-blue {
     width:  30vh;
     height: 30vh;
     display: inline-block;
     background-color: blue;
     border-top-right-radius: 2000px;
+    border: black 15px double; 
 }
 
 .button-green {
@@ -67,6 +66,7 @@ footer {
     display: inline-block;
     background-color: green;
     border-bottom-right-radius: 2000px;
+    border: black 15px double; 
 }
 
 .button-red {
@@ -75,6 +75,7 @@ footer {
     display: inline-block;
     background-color: red;
     border-bottom-left-radius: 2000px;
+    border: black 15px double; 
 }
 
 .button-yellow {
@@ -83,4 +84,61 @@ footer {
     display: inline-block;
     background-color: yellow;
     border-top-left-radius: 2000px;
+    border: black 15px double; 
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius */
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    height: 30vh;
+    flex-wrap: nowrap;
+    margin-top: 150px;
+    font-size:  0;
+    z-index: 2;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    height: 30vh;
+    flex-wrap: nowrap;
+    margin-top: 0 auto;
+    font-size: 0;
+    z-index: 2;
+}
+
+.startSimon img{
+    display: flex;
+    width:  20vh;
+    height: 20vh;
+    border-radius: 20px;
+    background: black;
+    position: absolute;
+    left: 0%;
+    top: 45%;
+    margin-left: 345px;
+    z-index: 3;
+}
+
+footer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    height: 80px;
+    background: rgba(127, 255, 0,.4);
+    margin-left: 80px;
+    z-index: 2;
+    
+}
+
+.instructions {
+    text-align: center;
 }
