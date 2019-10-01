@@ -32,7 +32,7 @@
     // each round it should loop through and add new combinations to the array
 
 //step 4
-    // create a function that compares the computers sequence to the players input array
+    // create a function that compares the computers sequence at index [0] to the players click event
 
 // step 5
     // create fucntions that update the score, round and highscore. 
@@ -65,3 +65,16 @@ $('.button-blue').on('click', ()=> {
     console.log($blue.text());
 })
 
+const colors = ['yellow', 'red', 'green', 'blue'];
+const computerSequence = [];
+
+createSequence = () => {
+for (let i=0; i<2; i++) {
+    let c = (Math.floor(Math.random() * (colors.length)));
+    computerSequence.push(colors[c]);
+}
+console.log(computerSequence);
+}
+createSequence();
+createSequence();
+createSequence();
