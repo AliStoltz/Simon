@@ -13,8 +13,18 @@ header {
     padding: 25px;
     text-align: center;
     color: blueviolet;
-    background: rgba(0, 255, 0,.3);
+    background: rgba(44, 233, 44, 0.3);
 }
+
+.button {
+    font-size: 16px;
+    background-color: blueviolet;
+    border: black 10px double;
+    text-align: center;
+    padding: 10px 25px;
+    margin: 0 auto;
+}
+
 
 .score-board {
     border: 5px solid black;
@@ -49,6 +59,14 @@ body img {
     width: 100%;
     z-index: -1;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* https://stackoverflow.com/questions/27177161/flexbox-curved-corners */
 .button-blue {
@@ -107,7 +125,6 @@ body img {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* position: absolute; */
     height: 30vh;
     flex-wrap: nowrap;
     margin-top: 0 auto;
@@ -115,17 +132,23 @@ body img {
     z-index: 2;
 }
 
-.startSimon img{
+.startSimon {
     display: flex;
-    width:  20vh;
-    height: 20vh;
-    border-radius: 20px;
-    background: black;
     position: absolute;
-    left: 0%;
-    top: 45%;
-    margin-left: 345px;
-    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.startSimon img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: black 15px double;
 }
 
 footer {
