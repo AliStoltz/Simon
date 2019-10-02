@@ -37,9 +37,16 @@
 // step 5
     // create fucntions that update the score, round and highscore. 
 
-$('button').on('click', ()=> {
-    console.log('game has started');
-})
+
+
+// startGame = () => {
+//     $('button').on('click', ()=> {
+//         createSequence();
+//         triggerSequence();
+// })
+
+
+
 
 let userSequence =[];
 
@@ -74,7 +81,7 @@ $('.button-blue').on('click', (event)=> {
 })
 
 const buttons = [$('.button-yellow').text(), $('.button-red').text(), $('.button-green').text(), $('.button-blue').text()];
-const computerSequence = [];
+let computerSequence = [];
 
 createSequence = () => {
 for (let i=0; i<2; i++) {
@@ -83,13 +90,8 @@ for (let i=0; i<2; i++) {
 }
     return computerSequence;
 }
-console.log(createSequence());
-createSequence();
-createSequence();
 
 
-//fadeOut()
-//fadeIn()
 triggerSequence = () => {
     let time = 500;
     computerSequence.forEach((color)=> {
@@ -98,22 +100,50 @@ triggerSequence = () => {
         }, time += 1000);
     }) 
 }
-triggerSequence();
 
+let $score = 0;
+updateScore = () => {
+    $('.score').text(`Score: ${$score}`);
+}
+let $round = 0;
+updateRound = () => {
+    $('.round').text(`Round: ${$round}`);
+}
 
-
+let $highschore = 0;
+endOfRound = () => {
+    $score = 0;
+    $('.high-score').text(`High Score: ${$highscore}`)
+}
 
 compareSequence = () => {
-    console.log(userSequence, computerSequence);
+    // console.log(userSequence, computerSequence);
     for(let step in userSequence){
+        console.log(userSequence[step], computerSequence[step])
         if(userSequence[step] === computerSequence[step]){
             console.log(true)
-            score ++;
+            if(parseInt(step) === computerSequence.length-1){
+                userSequence=[];
+                $score ++;
+                updateScore();
+            }
         } else {
             console.log(false)
+            // if(parseInt(step) !== computerSequence.length-1){
+                computerSequence=[]
+                $round ++;
+                updateRound();
+                $highscore = $score;
+                $score.empty;
+                updateScore();
+                endOfRound();
         }
-        if(userSequence.length === computerSequence.length){
-            userSequence=[];
-        }
+        
     }
 }
+
+
+    $('button').on('click', ()=> {
+        createSequence();
+        triggerSequence();
+    })
