@@ -105,15 +105,19 @@ let $score = 0;
 updateScore = () => {
     $('.score').text(`Score: ${$score}`);
 }
-let $round = 0;
+let $round = 1;
 updateRound = () => {
     $('.round').text(`Round: ${$round}`);
 }
 
 let $highschore = 0;
 endOfRound = () => {
-    $score = 0;
-    $('.high-score').text(`High Score: ${$highscore}`)
+    $('.high-score').text(`High Score: ${$newHighscore}`)
+    if ($highscore >= $score){
+        $newHighscore = $score;
+    } else if ($newHighScore >= $score){
+        $newHighScore = $newHighScore;
+    }
 }
 
 compareSequence = () => {
@@ -129,12 +133,13 @@ compareSequence = () => {
             }
         } else {
             console.log(false)
-            // if(parseInt(step) !== computerSequence.length-1){
-                computerSequence=[]
+                computerSequence=[];
+                userSequence=[];
                 $round ++;
                 updateRound();
-                $highscore = $score;
-                $score.empty;
+                $newHighscore = $score;
+                // $highscore = $newhighscore;
+                $score = 0;
                 updateScore();
                 endOfRound();
         }
