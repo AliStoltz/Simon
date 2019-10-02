@@ -41,40 +41,79 @@ $('button').on('click', ()=> {
     console.log('game has started');
 })
 
-const $yellow = $('.button-yellow')
-$('.button-yellow').on('click', ()=> {
+let userSequence =[];
+
+
+
+$('.button-yellow').on('click', (event)=> {
     $('.button-yellow').fadeToggle(100).fadeToggle(100);
-    console.log($yellow.text());
+    userSequence.push("yellow");
+    compareSequence(event);
 })
 
-const $red = $('.button-red')
-$('.button-red').on('click', ()=> {
+
+$('.button-red').on('click', (event)=> {
     $('.button-red').fadeToggle(100).fadeToggle(100);
-    console.log($red.text());
+    userSequence.push("red");
+    compareSequence(event);
 })
 
-const $green = $('.button-green')
-$('.button-green').on('click', ()=> {
+
+$('.button-green').on('click', (event)=> {
     $('.button-green').fadeToggle(100).fadeToggle(100);
-    console.log($green.text());
+    userSequence.push("green");
+    compareSequence(event);
+    
 })
 
-const $blue = $('.button-blue')
-$('.button-blue').on('click', ()=> {
+
+$('.button-blue').on('click', (event)=> {
     $('.button-blue').fadeToggle(100).fadeToggle(100);
-    console.log($blue.text());
+    userSequence.push("blue");
+    compareSequence(event);
 })
 
-const colors = ['yellow', 'red', 'green', 'blue'];
+const buttons = [$('.button-yellow').text(), $('.button-red').text(), $('.button-green').text(), $('.button-blue').text()];
 const computerSequence = [];
 
 createSequence = () => {
 for (let i=0; i<2; i++) {
-    let c = (Math.floor(Math.random() * (colors.length)));
-    computerSequence.push(colors[c]);
+    let c = (Math.floor(Math.random() * (buttons.length)));
+    computerSequence.push(buttons[c]);
 }
-console.log(computerSequence);
+    return computerSequence;
 }
+console.log(createSequence());
 createSequence();
 createSequence();
-createSequence();
+
+
+//fadeOut()
+//fadeIn()
+triggerSequence = () => {
+    let time = 500;
+    computerSequence.forEach((color)=> {
+        setTimeout(function() {
+            $(`.button-${color}`).fadeOut("slow").fadeIn("slow")
+        }, time += 1000);
+    }) 
+}
+triggerSequence();
+
+
+
+
+compareSequence = () => {
+    console.log(userSequence, computerSequence);
+    for(let step in userSequence){
+        if(userSequence[step] === computerSequence[step]){
+            console.log(true)
+            score ++;
+        } else {
+            console.log(false)
+        }
+        if(userSequence.length === computerSequence.length){
+            userSequence=[];
+        }
+    }
+}
