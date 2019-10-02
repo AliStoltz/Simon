@@ -76,6 +76,7 @@ main {
     background-color: blue;
     border-top-right-radius: 2000px;
     border: black 15px double; 
+    filter: brightness(50%);
 }
 
 .button-green {
@@ -85,6 +86,7 @@ main {
     background-color: green;
     border-bottom-right-radius: 2000px;
     border: black 15px double; 
+    filter: brightness(50%);
 }
 
 .button-red {
@@ -93,7 +95,8 @@ main {
     display: inline-block;
     background-color: red;
     border-bottom-left-radius: 2000px;
-    border: black 15px double; 
+    border: black 15px double;
+    filter: brightness(50%); 
 }
 
 .button-yellow {
@@ -104,6 +107,7 @@ main {
     border-top-left-radius: 2000px;
     border: black 15px double; 
     /* https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius */
+    filter: brightness(80%);
     
 }
 

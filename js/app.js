@@ -50,35 +50,48 @@
 
 let userSequence =[];
 
-
+//////////////button listeners//////////////////////
 
 $('.button-yellow').on('click', (event)=> {
-    $('.button-yellow').fadeToggle(100).fadeToggle(100);
+        $(`.button-yellow`).css('filter', 'brightness(100%)');
+        setTimeout(function(){
+            $(`.button-yellow`).css('filter', 'brightness(70%)');
+        }, 300)
     userSequence.push("yellow");
     compareSequence(event);
 })
 
-
 $('.button-red').on('click', (event)=> {
-    $('.button-red').fadeToggle(100).fadeToggle(100);
+    $(`.button-red`).css('filter', 'brightness(100%)');
+    setTimeout(function(){
+        $(`.button-red`).css('filter', 'brightness(70%)');
+    }, 300)
     userSequence.push("red");
     compareSequence(event);
 })
 
-
 $('.button-green').on('click', (event)=> {
-    $('.button-green').fadeToggle(100).fadeToggle(100);
+    $(`.button-green`).css('filter', 'brightness(100%)');
+    setTimeout(function(){
+        $(`.button-green`).css('filter', 'brightness(70%)');
+    }, 300)
     userSequence.push("green");
     compareSequence(event);
     
 })
 
-
 $('.button-blue').on('click', (event)=> {
-    $('.button-blue').fadeToggle(100).fadeToggle(100);
+    $(`.button-blue`).css('filter', 'brightness(100%)');
+    setTimeout(function(){
+        $(`.button-blue`).css('filter', 'brightness(70%)');
+    }, 300)
     userSequence.push("blue");
     compareSequence(event);
 })
+
+
+
+///////////////////computer sequence functions///////////////
 
 const buttons = [$('.button-yellow').text(), $('.button-red').text(), $('.button-green').text(), $('.button-blue').text()];
 let computerSequence = [];
@@ -91,15 +104,21 @@ for (let i=0; i<2; i++) {
     return computerSequence;
 }
 
-
 triggerSequence = () => {
     let time = 500;
     computerSequence.forEach((color)=> {
         setTimeout(function() {
-            $(`.button-${color}`).fadeOut("slow").fadeIn("slow")
-        }, time += 1000);
+            $(`.button-${color}`).css('filter', 'brightness(100%)');
+            setTimeout(function(){
+                $(`.button-${color}`).css('filter', 'brightness(50%)');
+            }, time = 500)
+        }, time += 500);
     }) 
 }
+
+
+
+//////////////// score board functions /////////////////
 
 let $score = 0;
 updateScore = () => {
@@ -110,18 +129,15 @@ updateRound = () => {
     $('.round').text(`Round: ${$round}`);
 }
 
-let $highschore = 0;
+let $newHighscore = 0;
 endOfRound = () => {
-    $('.high-score').text(`High Score: ${$newHighscore}`)
-    if ($highscore >= $score){
+    if ($newHighscore <= $score){
         $newHighscore = $score;
-    } else if ($newHighScore >= $score){
-        $newHighScore = $newHighScore;
-    }
+    } 
+    $('.high-score').text(`High Score: ${$newHighscore}`)
 }
 
 compareSequence = () => {
-    // console.log(userSequence, computerSequence);
     for(let step in userSequence){
         console.log(userSequence[step], computerSequence[step])
         if(userSequence[step] === computerSequence[step]){
@@ -130,6 +146,8 @@ compareSequence = () => {
                 userSequence=[];
                 $score ++;
                 updateScore();
+                createSequence();
+                triggerSequence();
             }
         } else {
             console.log(false)
@@ -137,16 +155,16 @@ compareSequence = () => {
                 userSequence=[];
                 $round ++;
                 updateRound();
-                $newHighscore = $score;
-                // $highscore = $newhighscore;
+                endOfRound();
                 $score = 0;
                 updateScore();
-                endOfRound();
+                
         }
         
     }
 }
 
+////////////// Start game / round ////////////////////
 
     $('button').on('click', ()=> {
         createSequence();
