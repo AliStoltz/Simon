@@ -60,7 +60,7 @@ $('.button-yellow').on('click', (event)=> {
     compareSequence(event);
 })
 
-var audio2 = document.getElementById('soundRed');
+var audio2 = document.getElementById('sound-red');
 $('.button-red').on('click', (event)=> {
         audio2.play();
         $(`.button-red`).css('filter', 'brightness(100%)');
@@ -71,7 +71,7 @@ $('.button-red').on('click', (event)=> {
     compareSequence(event);
 })
 
-var audio3 = document.getElementById('soundGreen');
+var audio3 = document.getElementById('sound-green');
 $('.button-green').on('click', (event)=> {
         audio3.play();
         $(`.button-green`).css('filter', 'brightness(100%)');
@@ -83,7 +83,7 @@ $('.button-green').on('click', (event)=> {
     
 })
 
-var audio4 = document.getElementById('soundBlue');
+var audio4 = document.getElementById('sound-blue');
 $('.button-blue').on('click', (event)=> {
         audio4.play();
         $(`.button-blue`).css('filter', 'brightness(100%)');
