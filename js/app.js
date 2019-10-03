@@ -125,6 +125,7 @@ triggerSequence = () => {
 }
 
 
+
 //////////////// score board functions /////////////////
 
 let $score = 0;

@@ -12,16 +12,33 @@ header {
     right: 0;
     padding: 25px;
     text-align: center;
-    color: blueviolet;
-    background: rgba(44, 233, 44, 0.3);
+    font-size: 33px;
+    letter-spacing: 0.2px;
+    word-spacing: 6px;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+    color: #FFFFFF;
+    text-shadow: #FFF 0px 0px 10px, #FFF 0px 0px 15px, #8a2be2 0px 0px 20px, rgb(33, 248, 87) 0px 0px 30px, #8a2be2 0px 0px 40px, 2px 2px 2px rgba(206,89,55,0);
+    /* https://html-css-js.com/css/generator/text-shadow/ */
 }
 
 .start-button {
-    font-size: 16px;
-    background-color: blueviolet;
-    border: black 10px double;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    word-spacing: 6px;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+    color: #FFFFFF;
+    background: #232323;
+    text-shadow: 0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #8a2be2, 0 0 55px #8a2be2, 2px 2px 2px rgba(206,89,55,0);
+    /* https://html-css-js.com/css/generator/text-shadow/ */
+    border: black 5px double;
     text-align: center;
-    padding: 10px 25px;
+    padding: 8px 25px;
     margin: 0 auto;
 }
 
