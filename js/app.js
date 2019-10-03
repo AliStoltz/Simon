@@ -49,7 +49,7 @@ let userSequence =[];
 ////////////// button listeners //////////////////////
 
 
-var audio1 = document.getElementById('soundYellow');
+var audio1 = document.getElementById('sound-yellow');
 $('.button-yellow').on('click', (event)=> {
         audio1.play();
         $(`.button-yellow`).css('filter', 'brightness(100%)');
@@ -109,18 +109,20 @@ for (let i=0; i<2; i++) {
     return computerSequence;
 }
 
+
 triggerSequence = () => {
     let time = 1000;
     computerSequence.forEach((color)=> {
         setTimeout(function() {
             $(`.button-${color}`).css('filter', 'brightness(100%)');
+            let audio = $(`#sound-${color}`);
+            audio[0].play();
             setTimeout(function(){
                 $(`.button-${color}`).css('filter', 'brightness(70%)');
             }, 500)
         }, time += 700);
-    }) 
+    })
 }
-
 
 
 //////////////// score board functions /////////////////
