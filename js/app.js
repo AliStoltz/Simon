@@ -18,10 +18,6 @@
 // Nice-to have
 // - buttons produce a specific tone when clicked
 
-// step one
-    // create a button
-    //add a litener to the button which will trigger the console to start the game.
-
 
 // step two
     // create a function that causes a toggle opacity on each color
@@ -50,41 +46,50 @@
 
 let userSequence =[];
 
-//////////////button listeners//////////////////////
+////////////// button listeners //////////////////////
 
+
+var audio1 = document.getElementById('soundYellow');
 $('.button-yellow').on('click', (event)=> {
+        audio1.play();
         $(`.button-yellow`).css('filter', 'brightness(100%)');
         setTimeout(function(){
-            $(`.button-yellow`).css('filter', 'brightness(70%)');
+            $(`.button-yellow`).css('filter', 'brightness(60%)');
         }, 300)
     userSequence.push("yellow");
     compareSequence(event);
 })
 
+var audio2 = document.getElementById('soundRed');
 $('.button-red').on('click', (event)=> {
-    $(`.button-red`).css('filter', 'brightness(100%)');
-    setTimeout(function(){
-        $(`.button-red`).css('filter', 'brightness(70%)');
-    }, 300)
+        audio2.play();
+        $(`.button-red`).css('filter', 'brightness(100%)');
+        setTimeout(function(){
+            $(`.button-red`).css('filter', 'brightness(60%)');
+        }, 300)
     userSequence.push("red");
     compareSequence(event);
 })
 
+var audio3 = document.getElementById('soundGreen');
 $('.button-green').on('click', (event)=> {
-    $(`.button-green`).css('filter', 'brightness(100%)');
-    setTimeout(function(){
-        $(`.button-green`).css('filter', 'brightness(70%)');
-    }, 300)
+        audio3.play();
+        $(`.button-green`).css('filter', 'brightness(100%)');
+        setTimeout(function(){
+            $(`.button-green`).css('filter', 'brightness(60%)');
+        }, 300)
     userSequence.push("green");
     compareSequence(event);
     
 })
 
+var audio4 = document.getElementById('soundBlue');
 $('.button-blue').on('click', (event)=> {
-    $(`.button-blue`).css('filter', 'brightness(100%)');
-    setTimeout(function(){
-        $(`.button-blue`).css('filter', 'brightness(70%)');
-    }, 300)
+        audio4.play();
+        $(`.button-blue`).css('filter', 'brightness(100%)');
+        setTimeout(function(){
+            $(`.button-blue`).css('filter', 'brightness(60%)');
+        }, 300)
     userSequence.push("blue");
     compareSequence(event);
 })
@@ -105,14 +110,14 @@ for (let i=0; i<2; i++) {
 }
 
 triggerSequence = () => {
-    let time = 500;
+    let time = 1000;
     computerSequence.forEach((color)=> {
         setTimeout(function() {
             $(`.button-${color}`).css('filter', 'brightness(100%)');
             setTimeout(function(){
-                $(`.button-${color}`).css('filter', 'brightness(50%)');
-            }, time = 500)
-        }, time += 500);
+                $(`.button-${color}`).css('filter', 'brightness(70%)');
+            }, 500)
+        }, time += 700);
     }) 
 }
 
