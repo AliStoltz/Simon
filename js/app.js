@@ -111,7 +111,7 @@ for (let i=0; i<2; i++) {
 
 
 triggerSequence = () => {
-    let time = 1000;
+    let time = 900;
     computerSequence.forEach((color)=> {
         setTimeout(function() {
             $(`.button-${color}`).css('filter', 'brightness(100%)');
@@ -119,8 +119,8 @@ triggerSequence = () => {
             audio[0].play();
             setTimeout(function(){
                 $(`.button-${color}`).css('filter', 'brightness(70%)');
-            }, 500)
-        }, time += 700);
+            }, 400)
+        }, time += 600);
     })
 }
 
@@ -132,9 +132,12 @@ let $score = 0;
 updateScore = () => {
     $('.score').text(`Score: ${$score}`);
 }
+
+var audio5 = document.getElementById('error')
 let $round = 1;
-updateRound = () => {
+updateRound = (event) => {
     $('.round').text(`Round: ${$round}`);
+    audio5.play();
 }
 
 let $newHighscore = 0;
